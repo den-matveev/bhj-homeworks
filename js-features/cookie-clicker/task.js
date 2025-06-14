@@ -1,11 +1,13 @@
 const clickerCounter = document.getElementById('clicker__counter');
 const clickerSpeed = document.getElementById('clicker__speed');
 const cookieImage = document.getElementById('cookie');
-const startTime = Date.now();
+const lastClick = Date.now();
 let currentCount = 0;
 
 const getAverageSecondClicks = () => {
-    return currentCount / ((Date.now() - startTime) / 1000).toFixed(2);
+    now = Date.now();
+    diff = (now - lastClick) / 1000;
+    return (1 / diff).toFixed(2);
 };
 
 cookieImage.onclick = () => {
